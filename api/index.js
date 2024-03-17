@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import userRoutes from "./routes/user.route.js"
 import authRoutes from "./routes/auth.route.js"
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 dotenv.config();
 
@@ -20,6 +21,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000.");
