@@ -13,12 +13,16 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     profilePicture: {
         type: String,
         default: "https://cdn-icons-png.freepik.com/256/1077/1077063.png",
     },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    }
  }, {timestamps: true}
 );
 
