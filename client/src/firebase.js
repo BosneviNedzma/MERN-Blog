@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "mern-blog-60add",
   storageBucket: "mern-blog-60add.appspot.com",
   messagingSenderId: "984593386464",
-  appId: "1:984593386464:web:5e6ab38fc40f016949f985"
+  appId: "1:984593386464:web:5e6ab38fc40f016949f985",
 };
 
 // Initialize Firebase
