@@ -8,7 +8,6 @@ import { app } from "../firebase";
 
 export default function OAuth() {
   const auth = getAuth(app);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
