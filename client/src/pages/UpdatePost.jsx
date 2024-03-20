@@ -8,7 +8,7 @@ import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CircularProgressbar } from "react-circular-progressbar";
 import { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { app } from "../firebase";
 import ReactQuill from "react-quill";
 import "react-circular-progressbar/dist/styles.css";
@@ -22,7 +22,7 @@ export default function UpdatePost() {
   const [publishError, setPublishError] = useState(null);
 
   const { postId } = useParams();
-  
+
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
 
@@ -89,13 +89,16 @@ export default function UpdatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `/api/post/updatepost/${formData._id}/${currentUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
 
       if (!res.ok) {
