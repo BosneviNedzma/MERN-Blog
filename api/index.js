@@ -5,6 +5,7 @@ import postRoutes from "./routes/post.route.js";
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -21,6 +22,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  })
+);
 
 
 app.listen(3000, () => {
