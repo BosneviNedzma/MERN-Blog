@@ -84,21 +84,21 @@ export const signout = (req, res, next) => {
 };
 
 export const getUsers = async (req, res, next) => {
-  if(!req.user.isAdmin){
-    return next(errorHandler(403, 'You are not allowed to seel all users.'));
+  if (!req.user.isAdmin) {
+    return next(errorHandler(403, "You are not allowed to seel all users."));
   }
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
     const limit = parseInt(req.query.limit) || 9;
-    const sortDirection = req.query.sort === 'asc' ? 1 : -1;
+    const sortDirection = req.query.sort === "asc" ? 1 : -1;
 
     const users = await User.find()
-    .sort({createdAt: sortDirection})
-    .skip(startIndex)
-    .limit(limit);
+      .sort({ createdAt: sortDirection })
+      .skip(startIndex)
+      .limit(limit);
 
     const usersWithoutPassword = users.map((user) => {
-      const { password, ...rest} = user._doc;
+      const { password, ...rest } = user._doc;
       return rest;
     });
 
@@ -113,7 +113,7 @@ export const getUsers = async (req, res, next) => {
     );
 
     const lastMonthUsers = await User.countDocuments({
-      createdAt: { $gte: oneMonthAgo},
+      createdAt: { $gte: oneMonthAgo },
     });
 
     res.status(200).json({
