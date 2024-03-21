@@ -9,7 +9,6 @@ export default function CommentSection({ postId }) {
   const [comment, setComment] = useState("");
   const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
-  console.log(comments);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +32,7 @@ export default function CommentSection({ postId }) {
       if (res.ok) {
         setComment("");
         setCommentError(null);
+        setComments([data, ...comments]);
       }
     } catch (error) {
       setCommentError(error.message);
@@ -43,6 +43,7 @@ export default function CommentSection({ postId }) {
     const getComments = async () => {
       try {
         const res = await fetch(`/api/comment/getPostComments/${postId}`);
+
         if (res.ok) {
           const data = await res.json();
           setComments(data);
