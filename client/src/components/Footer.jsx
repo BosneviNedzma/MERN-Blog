@@ -17,7 +17,7 @@ export default function FooterComponent() {
                 className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500
         to-pink-500 rounded-lg text-white"
               >
-                Nedžmić's
+                BosneviNedžma
               </span>
               Blog
             </Link>
@@ -41,7 +41,7 @@ export default function FooterComponent() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Nedžmić's Blog
+                  Who am I?
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
@@ -77,7 +77,7 @@ export default function FooterComponent() {
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright
             href="#"
-            by="Nedžmić's Blog"
+            by="BosneviNedžmaBlog"
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">

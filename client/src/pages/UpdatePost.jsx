@@ -5,8 +5,8 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
-import { useNavigate, useParams } from "react-router-dom";
 import { CircularProgressbar } from "react-circular-progressbar";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { app } from "../firebase";
@@ -21,9 +21,9 @@ export default function UpdatePost() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
 
-  const { postId } = useParams();
-
   const navigate = useNavigate();
+
+  const { postId } = useParams();
   const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {

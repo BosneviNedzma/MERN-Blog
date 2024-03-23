@@ -9,7 +9,7 @@ export default function Search() {
     sort: "desc",
     category: "uncategorized",
   });
-  console.log(sideBarData);
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -22,6 +22,7 @@ export default function Search() {
     const searchTermFromUrl = urlParams.get("searchTerm");
     const sortFromUrl = urlParams.get("sort");
     const categoryFromUrl = urlParams.get("category");
+
     if (searchTermFromUrl || sortFromUrl) {
       setSideBarData({
         ...sideBarData,
@@ -35,14 +36,17 @@ export default function Search() {
       setLoading(true);
       const searchQuery = urlParams.toString();
       const res = await fetch(`/api/post/getposts?${searchQuery}`);
+
       if (!res.ok) {
         setLoading(false);
         return;
       }
+
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
         setLoading(false);
+
         if (data.posts.length === 9) {
           setShowMore(true);
         } else {
@@ -83,20 +87,23 @@ export default function Search() {
     const numberOfPosts = posts.length;
     const startIndex = numberOfPosts;
     const urlParams = new URLSearchParams(location.search);
-    urlParams.set('startIndex', startIndex);
+    urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
     const res = await fetch(`/api/post/getposts/${searchQuery}`);
-    if(!res.ok){
-        return;
+
+    if (!res.ok) {
+      return;
     }
-    if(res.ok){
-        const data = await res.json();
-        setPosts([...posts, ...data.posts]);
-        if(data.posts.length === 9){
-            setShowMore(true);
-        }else{
-            setShowMore(false);
-        }
+
+    if (res.ok) {
+      const data = await res.json();
+      setPosts([...posts, ...data.posts]);
+
+      if (data.posts.length === 9) {
+        setShowMore(true);
+      } else {
+        setShowMore(false);
+      }
     }
   };
 
@@ -132,8 +139,11 @@ export default function Search() {
             >
               <option value="uncategorized">Uncategorized</option>
               <option value="reactjs">React.js</option>
-              <option value="nextjs">Next.js</option>
+              <option value="nextjs">Node.js</option>
               <option value="javascript">JavaScript</option>
+              <option value="mongo">MongoDB</option>
+              <option value="mysql">MySQL</option>
+              <option value="other">Other</option>
             </Select>
           </div>
           <Button type="submit" outline gradientDuoTone="purpleToPink">
@@ -150,12 +160,17 @@ export default function Search() {
             <p className="text-xl text-gray-500">No posts found.</p>
           )}
           {loading && <p className="text-xl text-gray-500">Loading...</p>}
-          {!loading && posts && posts.map((post) => 
-            <PostCard key={post._id} post={post} />
+          {!loading &&
+            posts &&
+            posts.map((post) => <PostCard key={post._id} post={post} />)}
+          {showMore && (
+            <button
+              onClick={handleShowMore}
+              className="text-teal-500 text-lg hover:underline p-7 w-full"
+            >
+              Show More
+            </button>
           )}
-          {
-            showMore && <button onClick={handleShowMore} className="text-teal-500 text-lg hover:underline p-7 w-full">Show More</button>
-          }
         </div>
       </div>
     </div>

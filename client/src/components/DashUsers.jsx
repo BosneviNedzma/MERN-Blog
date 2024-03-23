@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
+
   const [users, setUsers] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,7 @@ export default function DashUsers() {
 
         if (res.ok) {
           setUsers(data.users);
+
           if (data.users.length < 9) {
             setShowMore(false);
           }
@@ -27,6 +29,7 @@ export default function DashUsers() {
         console.log(error.message);
       }
     };
+
     if (currentUser.isAdmin) {
       fetchUsers();
     }
@@ -34,6 +37,7 @@ export default function DashUsers() {
 
   const handleShowMore = async () => {
     const startIndex = users.length;
+
     try {
       const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`);
       const data = await res.json();
@@ -56,6 +60,7 @@ export default function DashUsers() {
         method: "DELETE",
       });
       const data = await res.json();
+
       if (res.ok) {
         setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete));
         setShowModal(false);

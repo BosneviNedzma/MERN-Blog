@@ -4,9 +4,9 @@ import {
   HiDocumentText,
   HiOutlineUserGroup,
 } from "react-icons/hi";
+import { Button, Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 
 export default function DashboardComponent() {
@@ -19,6 +19,7 @@ export default function DashboardComponent() {
   const [lastMonthUsers, setLastMonthUsers] = useState(0);
   const [lastMonthPosts, setLastMonthPosts] = useState(0);
   const [lastMonthComments, setLastMonthComments] = useState(0);
+
   const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const fetchUsers = async () => {
