@@ -11,6 +11,7 @@ import Projects from "./pages/Projects";
 import PostPage from "./pages/PostPage";
 import Signin from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Search from "./pages/Search";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
