@@ -1,8 +1,8 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
-import { AiFillGoogleCircle } from "react-icons/ai";
 import { signInSuccess } from "../redux/user/userSlice";
-import { useDispatch } from "react-redux";
+import { AiFillGoogleCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Button } from "flowbite-react";
 import { app } from "../firebase";
 

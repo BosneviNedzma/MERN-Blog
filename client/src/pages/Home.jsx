@@ -20,13 +20,12 @@ export default function Home() {
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold lg:text-6xl">Welcome to my Blog!</h1>
         <p className="text-gray-500 text-xs sm:text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <p className="text-gray-900 text-lg">Hello stranger/friend!</p>
+          Thank you for visiting! I'll be writing about the errors I've
+          encountered and how I've resolved them. There will be various
+          programming languages involved, most commonly Node.js, React.js,
+          JavaScript, and databases such as MongoDB and MySQL. Don't be
+          surprised if I cover other topics as well.
         </p>
         <Link
           to="/search"

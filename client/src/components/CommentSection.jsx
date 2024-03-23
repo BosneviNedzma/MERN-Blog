@@ -7,6 +7,7 @@ import Comment from "./Comment";
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
+
   const [comment, setComment] = useState("");
   const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
@@ -107,6 +108,7 @@ export default function CommentSection({ postId }) {
       const res = await fetch(`/api/comment/deleteComment/${commentId}`, {
         method: "DELETE",
       });
+
       if (res.ok) {
         const data = await res.json();
         setComments(comments.filter((comment) => comment._id !== commentId));

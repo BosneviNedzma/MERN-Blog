@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Dashcomments() {
   const { currentUser } = useSelector((state) => state.user);
+
   const [comments, setComments] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -18,6 +19,7 @@ export default function Dashcomments() {
 
         if (res.ok) {
           setComments(data.comments);
+
           if (data.comments.length < 9) {
             setShowMore(false);
           }
@@ -26,6 +28,7 @@ export default function Dashcomments() {
         console.log(error.message);
       }
     };
+
     if (currentUser.isAdmin) {
       fetchComments();
     }
@@ -33,6 +36,7 @@ export default function Dashcomments() {
 
   const handleShowMore = async () => {
     const startIndex = comments.length;
+
     try {
       const res = await fetch(
         `/api/comment/getcomments?startIndex=${startIndex}`
@@ -53,6 +57,7 @@ export default function Dashcomments() {
 
   const handleDeleteComment = async () => {
     setShowModal(false);
+
     try {
       const res = await fetch(
         `/api/comment/deleteComment/${commentIdToDelete}`,

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
+
   const [userPosts, setUserPosts] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,7 @@ export default function DashPosts() {
 
         if (res.ok) {
           setUserPosts(data.posts);
+
           if (data.posts.length < 9) {
             setShowMore(false);
           }
@@ -27,6 +29,7 @@ export default function DashPosts() {
         console.log(error.message);
       }
     };
+
     if (currentUser.isAdmin) {
       fetchPosts();
     }
@@ -34,6 +37,7 @@ export default function DashPosts() {
 
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
+
     try {
       const res = await fetch(
         `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
@@ -54,6 +58,7 @@ export default function DashPosts() {
 
   const handleDeletePost = async () => {
     setShowModal(false);
+
     try {
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,

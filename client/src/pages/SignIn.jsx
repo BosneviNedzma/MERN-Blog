@@ -11,7 +11,9 @@ import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
+
   const { loading, error: errorMessage } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ export default function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!formData.email || !formData.password) {
       return dispatch(signInFailure("Please fill out all the fields."));
     }

@@ -14,15 +14,16 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { Alert, Button, Modal, TextInput } from "flowbite-react";
-import { useEffect, useRef, useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useSelector, useDispatch } from "react-redux";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function DashProfile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
+
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -38,6 +39,7 @@ export default function DashProfile() {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+
     if (file) {
       setImageFile(e.target.files[0]);
       setImageFileUrl(URL.createObjectURL(file));

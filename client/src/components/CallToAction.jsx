@@ -7,25 +7,23 @@ export default function CallToAction() {
     rounded-tl-3xl rounded-br-3xl text-center"
     >
       <div className="flex-1 justiy-center flex flex-col">
-        <h2 className="text-2xl">Want to learn more about JavaScript?</h2>
-        <p className="text-gray-500 my-2">
-          Checkout these resources with 100 JavaScript Projects
-        </p>
+        <h2 className="text-2xl">Want to learn more about my projects?</h2>
+        <p className="text-gray-500 my-2">Checkout this resource</p>
         <Button
           gradientDuoTone="purpleToPink"
           className="rounded-tl-xl rounded-bl-none"
         >
           <a
-            href="https://www.100jsprojects.com"
+            href="https://www.github.com/BosneviNedzma"
             target="_blank"
             rel="noopener noreferrer"
           >
-            100 JS Projects
+            Bosnevi Nedzma
           </a>
         </Button>
       </div>
       <div className="p-7 flex-1">
-        <img src="https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg" />
+        <img src="https://pbs.twimg.com/profile_images/1372304699601285121/5yBS6_3F_400x400.jpg" />
       </div>
     </div>
   );

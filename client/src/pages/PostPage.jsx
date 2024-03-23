@@ -7,6 +7,7 @@ import PostCard from "../components/PostCard";
 
 export default function PostPage() {
   const { postSlug } = useParams();
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
@@ -43,6 +44,7 @@ export default function PostPage() {
       const fetchRecentPosts = async () => {
         const res = await fetch(`/api/post/getposts?limit=3`);
         const data = await res.json();
+
         if (res.ok) {
           setRecentPosts(data.posts);
         }
@@ -99,9 +101,7 @@ export default function PostPage() {
         <h1 className="text-xl mt-5">Recent articles</h1>
         <div className="flex flex-wrap gap-5 mt-5 justify-center">
           {recentPosts &&
-            recentPosts.map((post) => 
-              <PostCard key={post._id} post={post} />
-            )}
+            recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
         </div>
       </div>
     </main>
