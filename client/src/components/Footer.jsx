@@ -7,11 +7,11 @@ export default function FooterComponent() {
     <Footer container className="border border-t-8 border-teal-500">
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid w-full justify-between sm:flex md:grid-cols-1">
-          <div className="mt-5">
+          <div className="mt-5 sm:mt-10 mb-4 sm:mb-20">
             <Link
               to="/"
-              className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold 
-      dark:text-white"
+              className="self-center whitespace-nowrap text-sm  sm:text-xl font-semibold 
+       dark:text-white "
             >
               <span
                 className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500
@@ -64,13 +64,6 @@ export default function FooterComponent() {
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
-            <div className="">
-              <Footer.Title title="Legal" />
-              <Footer.LinkGroup col>
-                <Footer.Link href="#">Privacy Policy</Footer.Link>
-                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
-              </Footer.LinkGroup>
-            </div>
           </div>
         </div>
         <Footer.Divider />
@@ -84,14 +77,17 @@ export default function FooterComponent() {
             <Footer.Icon
               href="https://www.facebook.com/nedzma.brkic.1/"
               icon={BsFacebook}
+              target="_blank"
             />
             <Footer.Icon
               href="https://twitter.com/brkic_nedz52943"
               icon={BsTwitter}
+              target="_blank"
             />
             <Footer.Icon
               href="https://github.com/BosneviNedzma"
               icon={BsGithub}
+              target="_blank"
             />
           </div>
         </div>

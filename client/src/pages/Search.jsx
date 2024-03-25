@@ -112,11 +112,12 @@ export default function Search() {
       <div className="p-7 border-b md:border-r md:min-h-screen border-gray-500">
         <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
           <div className="flex items-center gap-2">
-            <label className="whitespae-nowrap font-semibold">
+            <label className="whitespae-nowrap font-semibold w-40">
               Search Term:
             </label>
             <TextInput
               placeholder="Search..."
+              className="w-full"
               id="searchTerm"
               type="text"
               value={sideBarData.searchTerm}
@@ -124,16 +125,17 @@ export default function Search() {
             />
           </div>
           <div className="flex items-center gap-2">
-            <label className="font-semibold">Sort: </label>
-            <Select onChange={handleChange} value={sideBarData.sort} id="sort">
+            <label className="font-semibold w-40">Sort: </label>
+            <Select onChange={handleChange} value={sideBarData.sort} id="sort" className="w-full">
               <option value="desc">Latest</option>
               <option value="asc">Oldest</option>
             </Select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="font-semibold">Category: </label>
+            <label className="font-semibold w-40">Category: </label>
             <Select
               onChange={handleChange}
+              className="w-full"
               value={sideBarData.category}
               id="category"
             >
@@ -151,7 +153,7 @@ export default function Search() {
           </Button>
         </form>
       </div>
-      <div className="w-full">
+      <div className="w-full mx-auto">
         <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5">
           Posts results:
         </h1>
